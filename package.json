@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run-vue2": "cd ./vue2test && npm run serve"
+    "run-vue2": "cd ./vue2test && npm run serve",
+    "run-vue2canvaindex":"cd ./vue2canvaindex && npm run serve"
   },
   "repository": {
     "type": "git",

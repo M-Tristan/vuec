@@ -6,8 +6,7 @@
         <a-side></a-side>
       </div>
       <div class="container__main">
-        <main-search></main-search>
-        <model-list></model-list>
+        <router-view />
       </div>
     </div>
   </div>
@@ -16,11 +15,9 @@
 <script>
 import ASide from "../components/ASide.vue";
 import CHeader from "../components/CHeader.vue";
-import MainSearch from "../components/MainSearch.vue";
-import ModelList from "../components/ModelList.vue";
 export default {
   name: "Home",
-  components: { CHeader, ASide, MainSearch, ModelList },
+  components: { CHeader, ASide },
 };
 </script>
 <style lang="less">

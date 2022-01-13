@@ -9,6 +9,20 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    children: [
+      {
+        path: "/",
+        name: "Search",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/Search.vue"),
+      },
+      {
+        path: "/PTemplates",
+        name: "PTemplates",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/PTemplates.vue"),
+      },
+    ],
   },
   {
     path: "/about",
@@ -22,7 +36,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes,
 });

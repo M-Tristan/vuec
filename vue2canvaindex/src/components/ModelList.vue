@@ -1,12 +1,20 @@
 <template>
   <div class="modellist__container">
-    <div class="modellist__leftarrow" @click="buttonEvent('left')">
+    <div
+      class="modellist__leftarrow"
+      @click="buttonEvent('left')"
+      v-show="showLeft"
+    >
       <i class="el-icon-arrow-left"></i>
     </div>
-    <div class="modellist__rightarrow" @click="buttonEvent('right')">
+    <div
+      class="modellist__rightarrow"
+      @click="buttonEvent('right')"
+      v-show="showRight"
+    >
       <i class="el-icon-arrow-right"></i>
     </div>
-    <div class="modellist" ref="modelelement">
+    <div class="modellist" ref="modelelement" @scroll="renderNarrow">
       <img
         class="model__pic"
         :src="src"
@@ -56,9 +64,21 @@ export default {
   data() {
     return {
       piclist,
+      showLeft: true,
+      showRight: true,
     };
   },
+  mounted() {
+    this.renderNarrow();
+  },
   methods: {
+    renderNarrow() {
+      this.showLeft = this.$refs.modelelement.scrollLeft != 0;
+      this.showRight =
+        this.$refs.modelelement.scrollLeft +
+          this.$refs.modelelement.offsetWidth <
+        this.$refs.modelelement.scrollWidth;
+    },
     buttonEvent: _.debounce(
       function (direct = "right") {
         let width = this.$refs.modelelement.offsetWidth;

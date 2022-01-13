@@ -8,7 +8,9 @@
         <img src="@/assets/canvas.png" />
       </div>
       <div class="header-button">首页</div>
-      <div class="header-button">模版中心</div>
+      <div class="header-button" @click="$router.push({ name: 'PTemplates' })">
+        模版中心
+      </div>
       <div class="header-button">素材中心</div>
       <div class="header-button">设计中心</div>
       <div class="header-button">高级版</div>
@@ -32,7 +34,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {},
+};
 </script>
 
 <style lang="less" scoped>

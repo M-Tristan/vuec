@@ -11,45 +11,49 @@
     </div>
     <div class="classlist">
       <div class="itemarea">
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">为你推荐</div>
-        </div>
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">演示文稿</div>
-        </div>
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">社交媒体</div>
-        </div>
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">视频</div>
-        </div>
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">平面物料</div>
-        </div>
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">市场营销</div>
-        </div>
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">商务办公</div>
-        </div>
-        <div class="itemarea-item">
-          <div class="item__icon"></div>
-          <div class="item__desc">更多</div>
+        <div
+          class="itemarea__arrow"
+          :style="{
+            left: `${arrowPosition}px`,
+          }"
+        ></div>
+        <div
+          class="itemarea-item"
+          v-for="(item, index) in classlist"
+          :key="index"
+          @click="arrowindex = index"
+        >
+          <div :class="['item__icon', { active: index == arrowindex }]"></div>
+          <div class="item__desc">{{ item }}</div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      arrowindex: 0,
+      classlist: [
+        "为你推荐",
+        "演示文稿",
+        "社交媒体",
+        "视频",
+        "平面物料",
+        "市场营销",
+        "商务办公",
+        "更多",
+      ],
+    };
+  },
+  mounted() {},
+  computed: {
+    arrowPosition() {
+      return 40 + this.arrowindex * 100;
+    },
+  },
+};
 </script>
 
 <style lang="less">
@@ -101,8 +105,20 @@ export default {};
   margin-top: 20px;
   display: flex;
   justify-content: center;
+
   .itemarea {
     display: inline-block;
+    position: relative;
+    .itemarea__arrow {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      transform: rotate(45deg);
+      border-radius: 5px;
+      bottom: -40px;
+      transition-duration: 0.2s;
+    }
     .itemarea-item {
       cursor: pointer;
       float: left;
@@ -110,13 +126,17 @@ export default {};
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: 30px;
+      margin-left: 15px;
+      margin-right: 15px;
       .item__icon {
         width: 50px;
         height: 50px;
         margin-bottom: 15px;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.158);
+      }
+      .active {
+        background-color: white;
       }
       .item__desc {
         font-size: 14px;

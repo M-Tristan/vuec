@@ -7,6 +7,7 @@
       </div>
       <div class="container__main">
         <main-search></main-search>
+        <model-list></model-list>
       </div>
     </div>
   </div>
@@ -16,14 +17,14 @@
 import ASide from "../components/ASide.vue";
 import CHeader from "../components/CHeader.vue";
 import MainSearch from "../components/MainSearch.vue";
+import ModelList from "../components/ModelList.vue";
 export default {
   name: "Home",
-  components: { CHeader, ASide, MainSearch },
+  components: { CHeader, ASide, MainSearch, ModelList },
 };
 </script>
 <style lang="less">
 .content__container {
-  padding: 20px;
   position: absolute;
   top: 60px;
   left: 0;
@@ -36,6 +37,8 @@ export default {
   height: 100%;
 }
 .container__main {
+  padding: 20px;
   height: 100%;
+  overflow: hidden;
 }
 </style>

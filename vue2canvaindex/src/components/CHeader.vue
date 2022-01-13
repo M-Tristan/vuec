@@ -52,7 +52,7 @@ export default {};
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    background-color: rba(207, 205, 205, 0.233);
+    background-color: rgba(207, 205, 205, 0.233);
   }
 }
 .header-logo {

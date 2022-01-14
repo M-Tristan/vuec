@@ -1,50 +1,26 @@
 <template>
-  <div class="typecontainer">
-    <div class="maintypearea">
-      <div
-        :class="['type-item', { active: item.id == selectedId }]"
-        v-for="(item, index) in maintypes"
-        :key="index"
-        @click="selectedId = item.id"
-      >
-        {{ item.name }}
-      </div>
-    </div>
+  <div class="tempcontainer">
+    <screen @update="classupdate"></screen>
   </div>
 </template>
 
 <script>
-const typedata = require("../testdata/typedata.json");
+import Screen from "../components/Screen.vue";
 export default {
-  data() {
-    return {
-      maintypes: [],
-      selectedId: "",
-    };
-  },
+  components: { Screen },
   mounted() {
-    this.maintypes = typedata[0].cmsFilters;
-    this.selectedId = this.maintypes[0].id;
+    console.log(this.$route);
+  },
+  methods: {
+    classupdate(data) {
+      console.log(data);
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
-.typecontainer {
+.tempcontainer {
   width: 100%;
-}
-.maintypearea {
-  width: 100%;
-  border-bottom: 1px solid rgba(179, 179, 179, 0.24);
-  display: flex;
-  .type-item {
-    color: rgb(66, 66, 66);
-    margin: 0 20px 0 20px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  .active {
-    border-bottom: 2px solid rgb(0, 153, 255);
-  }
 }
 </style>

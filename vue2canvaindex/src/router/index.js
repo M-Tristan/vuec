@@ -14,13 +14,23 @@ const routes = [
         path: "/",
         name: "Search",
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/Search.vue"),
+          import(/* webpackChunkName: "Search" */ "../views/Search.vue"),
       },
       {
         path: "/PTemplates",
         name: "PTemplates",
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/PTemplates.vue"),
+          import(
+            /* webpackChunkName: "PTemplates" */ "../views/PTemplates.vue"
+          ),
+      },
+      {
+        path: "/PTemplates/:id",
+        name: "PTemplatesbyId",
+        component: () =>
+          import(
+            /* webpackChunkName: "PTemplates" */ "../views/PTemplates.vue"
+          ),
       },
     ],
   },

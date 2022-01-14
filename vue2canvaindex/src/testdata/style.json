@@ -1,0 +1,170 @@
+{
+    "color": {
+        "scope": 0,
+        "name": "颜色",
+        "type": "attribute",
+        "key": "colors",
+        "values": [
+            {
+                "value": 1,
+                "name": "红色",
+                "color": "#E72525"
+            },
+            {
+                "value": 6,
+                "name": "蓝色",
+                "color": "#53AFFF"
+            },
+            {
+                "value": 4,
+                "name": "绿色",
+                "color": "#9DE16F"
+            },
+            {
+                "value": 2,
+                "name": "橙色",
+                "color": "#F48700"
+            },
+            {
+                "value": 3,
+                "name": "黄色",
+                "color": "#FBE272"
+            },
+            {
+                "value": 11,
+                "name": "黑色",
+                "color": "#000000"
+            },
+            {
+                "value": 5,
+                "name": "湖蓝",
+                "color": "#36D8B7"
+            },
+            {
+                "value": 8,
+                "name": "粉色",
+                "color": "#FD73BC"
+            },
+            {
+                "value": 9,
+                "name": "棕色",
+                "color": "#C19867"
+            },
+            {
+                "value": 10,
+                "name": "灰色",
+                "color": "#BCCCDE"
+            },
+            {
+                "value": 7,
+                "name": "紫色",
+                "color": "#DE6FFF"
+            },
+            {
+                "value": 12,
+                "name": "白色",
+                "color": "#FFFFFF"
+            }
+        ]
+    },
+    "style": {
+        "scope": 0,
+        "name": "风格",
+        "type": "attribute",
+        "key": "styles",
+        "values": [
+            {
+                "value": "1",
+                "name": "文艺"
+            },
+            {
+                "value": "5",
+                "name": "简约"
+            },
+            {
+                "value": "2",
+                "name": "奢华"
+            },
+            {
+                "value": "3",
+                "name": "时尚"
+            },
+            {
+                "value": "6",
+                "name": "可爱"
+            },
+            {
+                "value": "9",
+                "name": "清新"
+            },
+            {
+                "value": "7",
+                "name": "酷炫"
+            },
+            {
+                "value": "8",
+                "name": "喜庆"
+            },
+            {
+                "value": "4",
+                "name": "复古"
+            },
+            {
+                "value": "10",
+                "name": "商务"
+            },
+            {
+                "value": "11",
+                "name": "中国风"
+            },
+            {
+                "value": "12",
+                "name": "创意"
+            },
+            {
+                "value": "13",
+                "name": "卡通"
+            },
+            {
+                "value": "14",
+                "name": "扁平"
+            },
+            {
+                "value": "15",
+                "name": "手绘"
+            },
+            {
+                "value": "16",
+                "name": "政务"
+            },
+            {
+                "value": "17",
+                "name": "科技"
+            },
+            {
+                "value": "18",
+                "name": "实景"
+            }
+        ]
+    },
+    "format": {
+        "scope": 0,
+        "name": "版式",
+        "type": "attribute",
+        "key": "formats",
+        "values": [
+            {
+                "name": "竖版",
+                "value": "2,3,4,5"
+            },
+            {
+                "name": "横版",
+                "value": "6,7,8,9"
+            },
+            {
+                "name": "方形",
+                "value": "1"
+            }
+        ]
+    }
+}

@@ -34,6 +34,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.$route);
     let idstr = this.$route.params.id;
     this.maintypes = typedata[0].cmsFilters;
     this.selectedId = String(this.maintypes[0].id);
@@ -45,6 +46,8 @@ export default {
       arr.forEach((element) => {
         selectedIndex.add(element);
       });
+      this.selectedId = String(arr[0]);
+      this.typelist = this.maintypes.find((item) => item.id == this.selectedId).children;
     } else {
       this.$router.push({
         name: "PTemplatesbyId",

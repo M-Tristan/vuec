@@ -20,7 +20,8 @@ export default {
   components: { CHeader, ASide },
 };
 </script>
-<style lang="less">
+
+<style lang="less" scoped>
 .content__container {
   position: absolute;
   top: 60px;

@@ -1,33 +1,19 @@
 <template>
   <div class="header-div">
     <div class="header-bttonarea">
-      <div class="header-button">
-        <i class="el-icon-s-operation button__icon"></i>
-      </div>
       <div class="header-logo">
         <img src="@/assets/canvas.png" />
       </div>
 
-      <div class="header-button" @click="$router.push({ name: 'Search' })">首页</div>
-      <div class="header-button" @click="$router.push({ name: 'PTemplates' })">
-        模版中心
-      </div>
-      <div class="header-button">素材中心</div>
+      <div class="header-button active">素材中心</div>
       <div class="header-button">设计中心</div>
       <div class="header-button">高级版</div>
       <div class="header-button">企业版</div>
-      <div class="header-button" @click="$router.push({ name: 'FDindex' })">FD版</div>
     </div>
     <div class="header-bttonarea">
+      <div class="header-button">create our app</div>
       <div class="header-button">
-        <i class="el-icon-setting button__icon"></i>
-      </div>
-
-      <div class="header-button">
-        <i class="el-icon-eleme button__icon"></i>
-      </div>
-      <div class="header-button">
-        <el-button type="primary">创建模版</el-button>
+        <el-button type="primary" round>sign in</el-button>
       </div>
 
       <div class="user-logo"></div>
@@ -51,17 +37,22 @@ export default {
   box-shadow: 0px 1px 5px #cac9c980;
   padding: 0 20px 0 20px;
 }
+.active {
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
 .header-button {
-  margin-right: 10px;
-  display: block;
-  padding: 10px;
-  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  margin-right: 30px;
   cursor: pointer;
   &:hover {
     background-color: rgba(207, 205, 205, 0.233);
   }
 }
 .header-logo {
+  margin-right: 40px;
   height: 40px;
   display: block;
   width: 80px;
@@ -79,10 +70,10 @@ export default {
   cursor: pointer;
 }
 .header-bttonarea {
-  display: block;
   display: flex;
-  height: 40px;
   align-items: center;
+
+  height: 100%;
 }
 .button__icon {
   font-size: 30px;

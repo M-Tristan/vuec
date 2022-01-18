@@ -27,11 +27,42 @@
         </div>
       </div>
     </div>
+    <div class="modeldistrib-container">
+      <div class="maincontent">
+        <template-distrib></template-distrib>
+      </div>
+    </div>
+    <div class="dividercontainer">
+      <divider-content></divider-content>
+    </div>
+    <div class="trending">
+      <trending-title></trending-title>
+    </div>
+    <template-distrib-scroll></template-distrib-scroll>
+
+    <div class="trending">
+      <trending-title></trending-title>
+    </div>
+    <div class="footer">
+      <f-footer></f-footer>
+    </div>
   </div>
 </template>
 
 <script>
+import DividerContent from "./DividerContent.vue";
+import FFooter from "./FFooter.vue";
+import TemplateDistrib from "./TemplateDistrib.vue";
+import TemplateDistribScroll from "./TemplateDistribScroll.vue";
+import TrendingTitle from "./TrendingTitle.vue";
 export default {
+  components: {
+    TemplateDistrib,
+    DividerContent,
+    TrendingTitle,
+    TemplateDistribScroll,
+    FFooter,
+  },
   data() {
     return {
       classlist: ["为你推荐", "演示文稿", "社交媒体", "市场营销", "商务办公", "更多"],
@@ -43,6 +74,9 @@ export default {
 <style lang="less" scoped>
 .main-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .seotips {
   margin-top: 30px;
@@ -112,5 +146,22 @@ export default {
       }
     }
   }
+}
+.modeldistrib-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .maincontent {
+    width: 60%;
+  }
+}
+.dividercontainer {
+  width: 100%;
+}
+.trending {
+  width: 60%;
+}
+.footer {
+  width: 80%;
 }
 </style>

@@ -28,9 +28,9 @@ export default {
   //   grid-template-columns: 260px auto;
 }
 .container__main {
-  padding: 20px;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 </style>

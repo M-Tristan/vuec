@@ -5,28 +5,13 @@
       <div class="tips-item">comments to disable some warnings</div>
       <div class="tips-item">warnings in a file.</div>
     </div>
-    <div class="search__contain">
-      <div class="search__inputcontain">
-        <div class="search__inputcontent">
-          <input class="search__input" />
-        </div>
-        <div class="containt__button"></div>
-      </div>
+    <div class="searcharea">
+      <search-component></search-component>
+    </div>
+    <div class="classarea">
+      <classlist></classlist>
     </div>
 
-    <div class="classlist">
-      <div class="itemarea">
-        <div
-          class="itemarea-item"
-          v-for="(item, index) in classlist"
-          :key="index"
-          @click="arrowindex = index"
-        >
-          <div :class="['item__icon', { active: index == arrowindex }]"></div>
-          <div class="item__desc">{{ item }}</div>
-        </div>
-      </div>
-    </div>
     <div class="modeldistrib-container">
       <div class="maincontent">
         <template-distrib></template-distrib>
@@ -50,8 +35,10 @@
 </template>
 
 <script>
+import Classlist from "./classlist.vue";
 import DividerContent from "./DividerContent.vue";
 import FFooter from "./FFooter.vue";
+import SearchComponent from "./SearchComponent.vue";
 import TemplateDistrib from "./TemplateDistrib.vue";
 import TemplateDistribScroll from "./TemplateDistribScroll.vue";
 import TrendingTitle from "./TrendingTitle.vue";
@@ -62,6 +49,8 @@ export default {
     TrendingTitle,
     TemplateDistribScroll,
     FFooter,
+    Classlist,
+    SearchComponent,
   },
   data() {
     return {
@@ -85,68 +74,7 @@ export default {
     font-size: 30px;
   }
 }
-.search__contain {
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  .search__inputcontain {
-    width: 40%;
-    height: 40px;
-    border-radius: 20px;
-    overflow: hidden;
-    display: grid;
-    box-shadow: 0 0 20px rgba(173, 172, 172, 0.486);
-    grid-template-columns: auto 50px;
-    overflow: hidden;
-    padding-left: 20px;
-    .search__input {
-      width: 100%;
-      height: 100%;
-      border: none;
-      outline: none;
-    }
-  }
-}
 
-.classlist {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-
-  .itemarea {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid rgba(209, 204, 204, 0.459);
-    border-bottom: 1px solid rgba(204, 202, 202, 0.452);
-    padding: 20px 0 20px 0;
-    width: 40%;
-    position: relative;
-    .itemarea-item {
-      cursor: pointer;
-      float: left;
-      width: 70px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-left: 15px;
-      margin-right: 15px;
-      .item__icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 15px;
-        border-radius: 50%;
-        background-color: rgb(0, 0, 0);
-      }
-      .active {
-        background-color: rgb(0, 0, 0);
-      }
-      .item__desc {
-        font-size: 14px;
-      }
-    }
-  }
-}
 .modeldistrib-container {
   width: 100%;
   display: flex;
@@ -163,5 +91,11 @@ export default {
 }
 .footer {
   width: 80%;
+}
+.searcharea {
+  width: 50%;
+}
+.classarea {
+  width: 50%;
 }
 </style>

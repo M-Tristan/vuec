@@ -43,12 +43,12 @@ export default {
 .header-button {
   display: flex;
   align-items: center;
-
   height: 100%;
   margin-right: 30px;
   cursor: pointer;
   &:hover {
-    background-color: rgba(207, 205, 205, 0.233);
+    // background-color: rgba(207, 205, 205, 0.233);
+    color: rgb(139, 139, 139);
   }
 }
 .header-logo {
@@ -72,7 +72,6 @@ export default {
 .header-bttonarea {
   display: flex;
   align-items: center;
-
   height: 100%;
 }
 .button__icon {

@@ -132,8 +132,8 @@ export default {
       margin-left: 15px;
       margin-right: 15px;
       .item__icon {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         margin-bottom: 15px;
         border-radius: 50%;
         background-color: rgb(0, 0, 0);

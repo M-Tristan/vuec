@@ -1,0 +1,25 @@
+{
+  "name": "tween",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":" npm run tsc && npm run rollup-build && rimraf .tmp",
+    "tsc": "tsc",
+    "rollup-build": "rollup -c ./rollup.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "rollup": "^2.64.0",
+    "rollup-plugin-dts": "^4.1.0"
+  }
+}

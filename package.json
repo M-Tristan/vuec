@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/M-Tristan/vuec/issues"
   },
-  "homepage": "https://github.com/M-Tristan/vuec#readme"
+  "homepage": "https://github.com/M-Tristan/vuec#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.0"
+  }
 }

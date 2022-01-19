@@ -2,10 +2,10 @@
   "name": "tween",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/tween.umd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":" npm run tsc && npm run rollup-build && rimraf .tmp",
+    "build": " npm run tsc && npm run rollup-build && rimraf .tmp",
     "tsc": "tsc",
     "rollup-build": "rollup -c ./rollup.config.js"
   },

@@ -7,17 +7,20 @@
     </div>
     <div class="modellist">
       <div class="modellist__column-left">
-        <div class="model-item" v-for="(item, index) in 4" :key="index"></div>
+        <model-item v-for="(item, index) in 4" :key="index"></model-item>
       </div>
       <div class="modellist__column-right">
-        <div class="model-item" v-for="(item, index) in 4" :key="index"></div>
+        <model-item v-for="(item, index) in 4" :key="index"></model-item>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import ModelItem from "./ModelItem.vue";
+export default {
+  components: { ModelItem },
+};
 </script>
 
 <style lang="less" scoped>
@@ -36,13 +39,7 @@ export default {};
   text-align: center;
   width: 60%;
 }
-.model-item {
-  width: 300px;
-  height: 300px;
-  background-color: black;
-  margin-bottom: 20px;
-  border-radius: 10px;
-}
+
 .modellist__column-left {
   float: left;
   margin-right: 30px;

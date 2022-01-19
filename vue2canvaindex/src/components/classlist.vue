@@ -17,7 +17,11 @@
           <div class="item__desc">{{ item }}</div>
         </div>
       </div>
-      <div v-show="showsubclasslist" class="subclasslist"></div>
+      <div v-show="showsubclasslist" class="subclasslist">
+        <div class="subclasslist__column" v-for="(item, index) in classlist" :key="index">
+          <div class="item__desc">{{ item }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -81,17 +85,30 @@ export default {
       }
     }
     .subclasslist {
+      padding-top: 40px;
+      padding-bottom: 20px;
       padding-left: 15px;
       padding-right: 15px;
-      width: 120%;
+      width: 130%;
       height: 300px;
       box-shadow: 0 0 4px black;
       background-color: white;
       position: absolute;
       top: 90px;
-      left: -10%;
+      left: -15%;
       z-index: 9;
       display: flex;
+      .subclasslist__column {
+        flex: 1;
+        border-right: 1px solid rgba(128, 128, 128, 0.288);
+        &:last-child {
+          border-right: 0px;
+        }
+        .item__desc {
+          font-size: 14px;
+          text-align: center;
+        }
+      }
     }
     .classdesclist {
       width: 100%;

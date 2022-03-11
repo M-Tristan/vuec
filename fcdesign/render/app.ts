@@ -21,13 +21,7 @@ async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV 
         let { createServer: _createServer } = require("vite");
         vite = await _createServer({
             root,
-            server: {
-                middlewareMode: true,
-                watch: {
-                    usePolling: true,
-                    interval: 100,
-                },
-            },
+            configFile: path.resolve(CWD, './config/vite.server.config.ts'),
         });
         app.use(vite.middlewares);
     }
@@ -45,14 +39,12 @@ async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV 
             if (isProd) {
                 // 生产
                 template = indexHtml;
-                render = require("../dist/server/entry-server.js").render;
             } else {
                 // 开发
                 template = fs.readFileSync(path.resolve(CWD, "./index.html"), "utf-8");
                 template = await vite.transformIndexHtml(url, template);
-                render = (await vite.ssrLoadModule("/src/entry-server.js")).render;
             }
-
+            render = await createRender(vite)
             let { html, preloadLinks } = await render(url, manifest);
             // 替换标记
             html = template
@@ -70,7 +62,16 @@ async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV 
 
     return { app };
 }
-
+const createRender = async (vite: any) => {
+    const isProd = process.env.NODE_ENV
+    let render: any
+    if (isProd) {
+        render = require("../dist/server/entry-server.js").render;
+    } else {
+        render = (await vite.ssrLoadModule(path.resolve(CWD, "/src/entrys/entry-server.ts"))).render;
+    }
+    return render
+}
 // 创建服务
 createServer().then(({ app }) => {
     app.listen(port, () => {

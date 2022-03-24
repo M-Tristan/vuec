@@ -2,10 +2,17 @@
 import fs from "fs";
 import path from "path";
 import express from "express";
+
+
 const resolve = (p: string) => path.resolve(__dirname, p)
 const port = 3050
 const CWD = process.cwd();
-async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV === "production") {
+require('dotenv-safe').config({
+    allowEmptyValues: true,
+    example: path.resolve(CWD, './.env')
+});
+
+async function createServer(root = CWD, isProd = process.env.NODE_ENV === "production") {
     const app = express();
     let vite: any;
     if (isProd) {
@@ -74,6 +81,7 @@ const createRender = async (vite: any) => {
 }
 // 创建服务
 createServer().then(({ app }) => {
+    console.log(process.env)
     app.listen(port, () => {
         console.log(`[server] http://localhost:${port}`);
     });

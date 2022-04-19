@@ -1,5 +1,5 @@
 <template>
-  <div>index</div>
+  <div class="text">index</div>
 </template>
 
 <script lang="ts">
@@ -12,4 +12,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.text {
+  color: red;
+}
+</style>

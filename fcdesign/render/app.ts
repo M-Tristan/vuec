@@ -7,10 +7,10 @@ import express from "express";
 const resolve = (p: string) => path.resolve(__dirname, p)
 const port = 3050
 const CWD = process.cwd();
-require('dotenv-safe').config({
-    allowEmptyValues: true,
-    example: path.resolve(CWD, './.env')
-});
+// require('dotenv-safe').config({
+//     allowEmptyValues: true,
+//     example: path.resolve(CWD, './.env')
+// });
 
 async function createServer(root = CWD, isProd = process.env.NODE_ENV === "production") {
     const app = express();

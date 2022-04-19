@@ -4,9 +4,13 @@ import Koa from 'koa';
 import Connect from 'koa-connect';
 import bodyParser from 'koa-bodyparser';
 import router from './router'
-const resolve = (p: string) => path.resolve(__dirname, p);
-const port = 5020
+import createViteServer from './vite-server'
 
+require('dotenv-safe').config({
+    example: path.resolve(process.cwd(), '.env')
+});
+
+const resolve = (p: string) => path.resolve(__dirname, p);
 async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV === "production") {
     const app = new Koa();
     app.use(bodyParser());
@@ -22,16 +26,7 @@ async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV 
     } else {
         // 开发
         let { createServer: _createServer } = require("vite");
-        vite = await _createServer({
-            root,
-            server: {
-                middlewareMode: true,
-                watch: {
-                    usePolling: true,
-                    interval: 100,
-                },
-            },
-        });
+        vite = await createViteServer()
         app.context.vite = vite;
         app.use(Connect(vite.middlewares));
     }
@@ -50,9 +45,8 @@ async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV 
 
 // 创建服务
 createServer().then(({ app }) => {
-
-    app.listen(port, () => {
-        console.log("[server] http://localhost:" + port);
+    app.listen(process.env.SERVER_PORT, () => {
+        console.log("[server] http://localhost:" + process.env.SERVER_PORT);
     });
 });
 

@@ -5,12 +5,16 @@
   "scripts": {
     "dev": "vite",
     "dev:server": "npm run compile:render && npx concurrently \"nodemon  ./dist/render/server.js\" \"npm run watch:render\" ",
-    "build": "yarn build:client && yarn build:server",
+    "node:predata": "npm run compile:render && npm run kill:port && node  ./dist/render/predata.js",
+    "build": "npm run  build:client && yarn build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/.js --outDir dist/server",
     "serve": "cross-env NODE_ENV=production node ./server.js",
     "compile:render": "npx tsc -p ./render --outDir ./dist/render",
-    "watch:render": "chokidar \"./render/**/*.ts\" -c \"yarn compile:render\""
+    "watch:render": "chokidar \"./render/**/*.ts\" -c \"yarn compile:render\"",
+    "kill:port": "npx kill-port 5010",
+    "set:mode:production": "cross-env NODE_ENV=production",
+    "cz": "git cz"
   },
   "dependencies": {
     "dotenv-safe": "^8.2.0",
@@ -27,10 +31,17 @@
     "@types/koa-router": "^7.4.4",
     "@vitejs/plugin-vue": "^2.3.0",
     "chokidar-cli": "^3.0.0",
+    "commitizen": "^4.2.4",
     "concurrently": "^7.1.0",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.15",
     "typescript": "^4.5.4",
     "vite": "^2.9.0",
     "vue-tsc": "^0.29.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
